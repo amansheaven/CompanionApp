@@ -12,18 +12,19 @@ export class CentralService {
 
   public serverok():Observable<any>{
     // let results = 
-    console.log("doin it")
     return from(this.http.get(this.url,{},{'Content-Type':'application/json'})
           .then(Response=>{
-            console.log("After Promise")
-            console.log(Response)
+            console.log("Success")
             return Response
           })
           .catch(resp =>{   
-            console.log("err:catch");
-            console.log(resp)
+            console.log("Error");
             return resp;
           })
         )
   }
+
+  // public gps():Observable<any>{
+
+  // }
 }

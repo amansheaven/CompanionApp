@@ -1,7 +1,13 @@
 <ion-content [fullscreen]="true">
-  <div id="container">
-    <strong>Connecting to server</strong>
-    <div id="emoji">{{emoji}}</div>
-    <a>{{state}}</a>
+  <div #transcolor id="container">
+    <div id="text">
+      <strong>Connecting to server</strong>
+    </div>
+    <div id="emoji">
+      {{emoji}}
+    </div>
+    <div id="state">
+      <a>{{state}}</a>
+    </div>
   </div>
 </ion-content>

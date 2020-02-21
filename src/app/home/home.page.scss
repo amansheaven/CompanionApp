@@ -10,12 +10,21 @@
 
   display: flex;
   flex-direction: column;
+  background-color: #8c8c8c;
+  transition: background-color .15s ease;
+  // background-color: #1B9CFC;
+  height: 100%;
+}
+#text{
+  margin-top: 30%;
 }
 
-#container strong {
-  margin-top: 30%;
+#text strong {
+  padding: 10px;
+  background-color: whitesmoke;
   font-size: 200%;
   line-height: 26px;
+  border-radius: 15px;
 
   color: rgb(70, 70, 70);
 }
@@ -29,17 +38,23 @@
   margin: 0;
 }
 
-
-#container a {
+#state{
+  margin-top: 50%;
+}
+#state a {
+  padding: 1%;
+  padding-left: 5%;
+  padding-right: 5%;
+  border-width: 50px;
   font-size: 150%;
   text-decoration: none;
   color: rgb(185, 32, 58);
-  // margin-top: 80%;
-  margin-top: 50%;
+  background-color: whitesmoke;
+  border-radius: 50px;
 }
 
 ion-content {
-  --background: white;
+  --background:white;
 }
 
 #emoji {
