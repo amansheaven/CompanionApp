@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule,APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { HTTP } from '@ionic-native/http/ngx'
+import { Platform } from '@ionic/angular'
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,7 +20,11 @@ import { HTTP } from '@ionic-native/http/ngx'
     StatusBar,
     SplashScreen,
     HTTP,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: APP_INITIALIZER, useFactory: (platform: Platform) => {
+        return () => platform.ready()
+      }, deps: [Platform],multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
