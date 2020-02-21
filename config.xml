@@ -3,7 +3,7 @@
     <name>MyApp</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework.com" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content original-src="index.html" src="http://10.10.35.66:8101" />
+    <content original-src="index.html" src="http://192.168.43.92:8101" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -100,5 +100,10 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^4.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <allow-navigation href="http://10.10.35.66:8101" sessionid="d1ea2917" />
+    <plugin name="cordova-plugin-advanced-http" spec="2.4.1">
+        <variable name="OKHTTP_VERSION" value="3.10.0" />
+    </plugin>
+    <allow-navigation href="http://192.168.43.92:8101" sessionid="c2794771" />
     <engine name="android" spec="7.1.4" />
+    <engine name="browser" spec="5.0.4" />
 </widget>
