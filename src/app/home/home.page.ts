@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CentralService } from '../services/central.service';
+import { StatusBar } from '@ionic-native/status-bar/ngx'
 
 @Component({
   selector: 'app-home',
@@ -11,12 +12,12 @@ export class HomePage implements OnInit{
   public state = "Connecting";
   public emoji = '🤔';
 
-  constructor(private conn: CentralService) {}
+  constructor(private conn: CentralService, private sbar:StatusBar) {
+    sbar.overlaysWebView(true)
+  }
 
   ngOnInit(){
-      console.log("Calling Service")
       this.conn.serverok().subscribe( (resp) => {
-        console.log(resp)
         if(resp.status = 200){
           this.emoji='😊';
           this.state="Ka Ching! Connected"

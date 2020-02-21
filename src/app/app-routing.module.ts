@@ -8,6 +8,22 @@ const routes: Routes = [
     path: 'scan',
     loadChildren: () => import('./scan/scan.module').then( m => m.ScanPageModule)
   },
+  {
+    path: 'read',
+    loadChildren: () => import('./read/read.module').then( m => m.ReadPageModule)
+  },
+  {
+    path: 'tabs',
+    loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
+  },
+  {
+    path: 'beacons',
+    loadChildren: () => import('./beacons/beacons.module').then( m => m.BeaconsPageModule)
+  },
+  {
+    path: 'location',
+    loadChildren: () => import('./location/location.module').then( m => m.LocationPageModule)
+  },
 ];
 
 @NgModule({
