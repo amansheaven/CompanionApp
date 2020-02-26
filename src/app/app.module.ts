@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { HTTP } from '@ionic-native/http/ngx'
 import { Platform } from '@ionic/angular'
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,7 +25,8 @@ import { Platform } from '@ionic/angular'
     { provide: APP_INITIALIZER, useFactory: (platform: Platform) => {
         return () => platform.ready()
       }, deps: [Platform],multi: true
-    }
+    },
+    Geolocation
   ],
   bootstrap: [AppComponent]
 })
