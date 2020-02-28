@@ -1,6 +1,35 @@
 <ion-content>
-<strong>IS THIS WORKING</strong><br>
-<strong>{{latitude}}</strong><br>
-<strong>{{longitude}}</strong><br>
-<strong>{{State}}</strong>
+<div id="container" [ngStyle]="{'background-image': 'url(' + urlbackaddr + ')'}" >
+    <div id="head">
+        <p id="mainhead">
+            WelcomeTo<br>
+            <a>{{state['name']}}</a><br>
+            <a style="color: rgb(134, 134, 134);">{{state['location']}}</a><br>
+        </p>
+        <div id="star">
+            <div id="star_new" *ngFor="let user of ' '.repeat(state['star']).split('')">
+                <div class="clip-star"></div>
+            </div>
+        </div>
+            <!-- <br> -->
+        <div id="tagcont">
+            <p *ngFor="let user of state.tags" id="tags">
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+                <a> {{user}}</a>
+            </p>
+        </div>
+
+    </div>
+    <div id="starinfo">
+        <div id="info">
+            <ion-button shape='round' fill="solid" (click)='moveForward()'>
+                <a style="padding-right: 0.5rem;">Check In</a>
+                <ion-icon class="go" name="arrow-forward-circle" style="font-size: 2rem;"></ion-icon>
+            </ion-button>
+        </div>  
+    </div>
+    <div id="code">
+        <a id = 'code'>{{state['srtid']}}</a>
+    </div>  
+</div>
 </ion-content>

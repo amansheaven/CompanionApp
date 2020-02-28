@@ -1,0 +1,102 @@
+#container{
+    text-align: center;
+    font-family: 'Poppins Bold';  
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    // background-image: url('delhi_1.png');
+    background-repeat: no-repeat;
+    background-blend-mode: color;
+    background-size: 100% 100%;
+    background-size: cover;
+    
+}
+
+
+#mainhead{
+    margin-left: 1.5rem;
+    font-size: 2.5rem;
+    color: black;
+    text-align: left;
+    line-height: 2.3rem;
+    opacity: 1;
+}
+
+#head {
+    padding-top: 3.3rem;
+    justify-content: flex-start;
+}
+
+#star{
+    text-align: left;
+    opacity: 0.8;
+    margin-left: 1.5rem;
+
+    // display: block;
+}
+#star_new {
+    background: rgb(85, 85, 85);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    height: 1.8rem;
+    width: 1.8rem;
+    display: inline-block;
+    
+}
+
+#tagcont{
+    padding-top: 2rem;
+    text-align: left;
+}
+#tagcon p{
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+}
+
+#tagcont a{
+    font-family: "Poppins Medium";
+    font-size: 1.8rem;
+    color: rgb(16, 78, 0);
+    text-align: left;
+    line-height: 0.3rem;
+    opacity: 1;
+}
+
+#starinfo{
+    margin-top: auto;
+    padding-top: 0.20rem;
+    padding-bottom: 0.20rem;
+}
+
+
+#info{
+    padding-bottom: 1rem;
+    align-items: left;
+}
+
+#info a{
+    padding-top:auto;
+
+    font-size: 2rem;
+    color: white;
+}
+#code{
+    font-size: 1rem;
+    color: rgb(148, 147, 147);
+    padding-bottom: 1rem;
+}
+
+ion-content {
+    --background : white;
+}
+
+ion-button {
+    --padding-start: 2.7rem;
+    --padding-end:2.7rem;
+    --padding-top:1.5rem;
+    --padding-bottom:1.5rem;
+}
+
+.go{
+    font-size: 2rem;
+}

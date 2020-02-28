@@ -9,7 +9,8 @@ import { resolve } from 'url';
 })
 export class CentralService {
 
-  private url = 'http://serveok.herokuapp.com/'
+  // private url = 'http://serveok.herokuapp.com/'
+  public url = 'http://192.168.43.92:5000/'
   
 
   constructor(private http:HTTP, private geo:Geolocation) { }
@@ -25,14 +26,10 @@ export class CentralService {
   }
 
   public trace(lati,longi){
-    let urli = '192.168.43.92:5000/'
-    return this.http.get(urli+'trace',{
-      params:{
-        lati : [lati.toString()],
-        longi : [longi.toString()]        
-      }
-    },{'Content-Type':'application/json'})
- 
+     // testing api for prod use private url in constructor
+    let finurl = this.url+'trace?longi='+longi.toString()+'&lati='+lati.toString()
+    console.log(finurl)
+    return this.http.get(finurl,{},{'Content-Type':'application/json'})
     // return of(long, lati)
   }
 
