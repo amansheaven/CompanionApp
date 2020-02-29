@@ -5,9 +5,29 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: '',
-    component: TabsPage
-  }
+    path: 'tabs',
+    component: TabsPage,
+    children: [
+      {
+        path: 'scan',
+        loadChildren: () => import('../scan/scan.module').then( m => m.ScanPageModule)
+      },
+      {
+        path: 'read',
+        loadChildren: () => import('../read/read.module').then( m => m.ReadPageModule)
+      },
+      {
+        path: 'beacons',
+        loadChildren: () => import('../beacons/beacons.module').then( m => m.BeaconsPageModule)
+      },
+      {
+        path: '',
+        redirectTo: 'read',
+        pathMatch: 'full'
+      }
+    ]
+  },
+  { path: '', redirectTo: '/tabs/tabs/read', pathMatch: 'full' }
 ];
 
 @NgModule({

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import { CentralService } from '../services/central.service';
-import { type } from 'os';
 
 @Component({
   selector: 'app-location',
@@ -14,7 +13,7 @@ export class LocationPage implements OnInit {
   longitude= 76.9983269;
   public urlbackaddr ;
 
-  constructor(private route: ActivatedRoute, private router:Router, private conn: CentralService) { 
+  constructor(private route: ActivatedRoute, private router:Router, private conn: CentralService, private navc:Router) { 
     this.route.queryParams.subscribe(params => {
       if(this.router.getCurrentNavigation().extras.state) {
         this.longitude =  this.router.getCurrentNavigation().extras.state.longitude
@@ -37,7 +36,13 @@ export class LocationPage implements OnInit {
   }
 
   moveForward(){
-    console.log('goahead')
+    console.log('MovingToTabs')
+    let passing : NavigationExtras = {
+      state : {
+        store_id : this.state['srtid']
+        }
+      };    
+      this.navc.navigate(['/tabs'],passing);
   }
 
 }

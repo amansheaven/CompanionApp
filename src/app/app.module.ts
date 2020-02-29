@@ -24,7 +24,9 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: APP_INITIALIZER, useFactory: (platform: Platform) => {
         return () => platform.ready()
-      }, deps: [Platform],multi: true
+      },
+      deps: [Platform],
+      multi: true
     },
     Geolocation
   ],
