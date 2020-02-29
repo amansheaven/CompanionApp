@@ -1,0 +1,22 @@
+ion-content {
+    background: transparent !important;
+}
+
+#container {
+    display: flex;
+	align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+    // background-color: violet;
+}
+#direction{
+    text-align: center;
+    font-family: 'Poppins Bold'; 
+    color: white;
+    // margin-bottom: 5rem;
+    font-size: 2rem;
+}
+.pulse-button{
+    // background: ;
+}

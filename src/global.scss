@@ -30,3 +30,7 @@
     margin-top: 2rem;
     text-align: center;
 }
+
+ion-app.cameraView ion-content{
+    --background: transparent none !important;
+  }
