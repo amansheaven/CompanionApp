@@ -12,6 +12,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HTTP } from '@ionic-native/http/ngx'
 import { Platform } from '@ionic/angular'
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { NFC, Ndef } from '@ionic-native/nfc/ngx';
+import { Vibration } from '@ionic-native/vibration/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,7 +30,10 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
       deps: [Platform],
       multi: true
     },
-    Geolocation
+    Geolocation,
+    NFC,
+    Ndef,
+    Vibration
   ],
   bootstrap: [AppComponent]
 })

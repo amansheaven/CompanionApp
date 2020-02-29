@@ -104,7 +104,10 @@
         <variable name="OKHTTP_VERSION" value="3.10.0" />
     </plugin>
     <allow-navigation href="http://192.168.43.92:8101" sessionid="fa0b516b" />
-    <allow-navigation href="http://192.168.43.92:8102" sessionid="fb7edbeb" />
+    <plugin name="phonegap-nfc" spec="1.0.4" />
+    <plugin name="cordova-plugin-vibration" spec="3.1.1" />
+    <plugin name="cordova-plugin-qrscanner" spec="3.0.1" />
+    <allow-navigation href="http://192.168.43.92:8102" sessionid="e9cb8ac9" />
     <engine name="android" spec="7.1.4" />
     <engine name="browser" spec="5.0.4" />
 </widget>

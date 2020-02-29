@@ -1,0 +1,51 @@
+#container {
+    display: flex;
+	align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+}
+#direction{
+    text-align: center;
+    font-family: 'Poppins Bold'; 
+    color: whitesmoke;
+    margin-bottom: 5rem;
+    font-size: 2rem;
+}
+.pulse-button{
+    padding-bottom: 5rem;
+    margin-bottom: 5rem;
+}
+svg{
+    width: 15rem;
+    height: 15rem;
+    animation: borderPulse 1000ms infinite ease-out;
+	border-radius: 500px;
+    box-shadow: 1rem 1rem black;
+}
+@keyframes colorShift {
+	0%, 100% {
+			color: #0045e6;
+	}
+	33% {
+		color: #fb3e3e;
+	}
+	66%{
+		coloor: #0dcc00;
+	}
+}
+
+/* Declare border pulse animation */
+@keyframes borderPulse {
+  0% {
+    box-shadow: inset 0rem 0rem 0rem 1.5rem rgba(255, 255, 255,.4), 0rem 0rem 0rem 0rem rgba(255,255,255,1);
+  }
+  100% {
+    box-shadow: inset 0rem 0rem 0rem 0.8rem rgba(117, 117, 255,.2), 0rem 0rem 0rem 3rem rgba(255,255,255,0);
+  }
+}
+
+ion-content {
+    --background:#375fae;
+}
+
