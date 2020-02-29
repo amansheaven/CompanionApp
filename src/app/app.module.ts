@@ -14,6 +14,8 @@ import { Platform } from '@ionic/angular'
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NFC, Ndef } from '@ionic-native/nfc/ngx';
 import { Vibration } from '@ionic-native/vibration/ngx';
+import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx'
+import { Device } from '@ionic-native/device/ngx'
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,7 +35,9 @@ import { Vibration } from '@ionic-native/vibration/ngx';
     Geolocation,
     NFC,
     Ndef,
-    Vibration
+    Vibration,
+    QRScanner,
+    Device
   ],
   bootstrap: [AppComponent]
 })
