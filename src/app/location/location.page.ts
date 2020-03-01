@@ -16,8 +16,8 @@ export class LocationPage implements OnInit {
   public urlbackaddr ;
 
   constructor(private statusBar: StatusBar,private route: ActivatedRoute, private router:Router, private conn: CentralService, private navc:Router) { 
+    this.statusBar.styleLightContent()
     this.route.queryParams.subscribe(params => {
-      this.statusBar.styleLightContent()
       if(this.router.getCurrentNavigation().extras.state) {
         this.longitude =  this.router.getCurrentNavigation().extras.state.longitude
         this.latitude  =  this.router.getCurrentNavigation().extras.state.latitude

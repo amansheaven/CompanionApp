@@ -58,7 +58,7 @@ export class ReadPage implements OnInit {
             id:tagContent.substr(3)
           }
         }
-        this.navc.navigate(['/location'],passing)
+        this.navc.navigate(['/product'],passing)
       })
       
     })

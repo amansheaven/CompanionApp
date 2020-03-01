@@ -38,31 +38,14 @@ export class ScanPage implements OnInit {
   }
 
   goToQrScan() {
+    (window.document.querySelector('ion-app') as HTMLElement).classList.add('cameraView');
+    window.document.body.style.backgroundColor = 'transparent';
     this.qrScanCtrl.prepare()
       .then((status: QRScannerStatus) => {
         if (status.authorized) {
           // camera permission was granted
           this.isOn = true;
           // start scanning
-          const scanSub = this.qrScanCtrl.scan().subscribe((text: string) => {
-            console.log('Scanned something', text);
-            this.isOn = false;
-            this.presentToast(text)
-            .then(()=>{
-              let passing : NavigationExtras = {
-                state: {
-                  id:text
-                }
-              }
-              this.navc.navigate(['/location'],passing)
-            })
-
-            this.QRSCANNED_DATA = text;
-            if (this.QRSCANNED_DATA !== '') {
-              scanSub.unsubscribe();
-            }
-
-          });
           this.qrScanCtrl.show();
 
         } else if (status.denied) {
@@ -71,7 +54,7 @@ export class ScanPage implements OnInit {
         } else {
         }
       })
-      .catch((e: any) => console.log('Error is', e));
+      .catch((e: any) => console.log('Error is', e)); 
   }
 
   closeScanner() {
@@ -84,10 +67,8 @@ export class ScanPage implements OnInit {
 
 
   ionViewDidEnter(){
-    (window.document.querySelector('ion-app') as HTMLElement).classList.add('cameraView');
-    window.document.body.style.backgroundColor = 'transparent';
     this.goToQrScan()
-    console.log(this.QRSCANNED_DATA);
+    let scanlisten = this.qrScanCtrl.scan()
   }
 
   ionViewDidLeave(){
