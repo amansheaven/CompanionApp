@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 @Component({
   selector: 'app-beacons',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BeaconsPage implements OnInit {
 
-  constructor() { }
+  constructor(private statusBar: StatusBar) { }
 
   ngOnInit() {
+    this.statusBar.overlaysWebView(true)
   }
 
 }

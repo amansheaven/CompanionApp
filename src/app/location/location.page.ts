@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import { CentralService } from '../services/central.service';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+
 
 @Component({
   selector: 'app-location',
@@ -13,8 +15,9 @@ export class LocationPage implements OnInit {
   longitude= 76.9983269;
   public urlbackaddr ;
 
-  constructor(private route: ActivatedRoute, private router:Router, private conn: CentralService, private navc:Router) { 
+  constructor(private statusBar: StatusBar,private route: ActivatedRoute, private router:Router, private conn: CentralService, private navc:Router) { 
     this.route.queryParams.subscribe(params => {
+      this.statusBar.styleLightContent()
       if(this.router.getCurrentNavigation().extras.state) {
         this.longitude =  this.router.getCurrentNavigation().extras.state.longitude
         this.latitude  =  this.router.getCurrentNavigation().extras.state.latitude
@@ -24,6 +27,7 @@ export class LocationPage implements OnInit {
   state = {}
   
   ngOnInit() {
+    this.statusBar.styleLightContent()
     this.conn.trace(this.latitude,this.longitude)
     .then((resp)=>{
         resp = JSON.parse(resp.data)

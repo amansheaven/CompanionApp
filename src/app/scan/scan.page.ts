@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { QRScanner,QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+
 
 @Component({
   selector: 'app-scan',
@@ -13,11 +15,11 @@ export class ScanPage implements OnInit {
   isOn = false;
   scannedData: {};
 
-  constructor(private qrScanner: QRScanner, public qrScanCtrl: QRScanner) { 
+  constructor(private statusBar: StatusBar,private qrScanner: QRScanner, public qrScanCtrl: QRScanner) { 
   }
 
   ngOnInit() {
-
+    this.statusBar.overlaysWebView(true)
   }
 
   goToQrScan() {

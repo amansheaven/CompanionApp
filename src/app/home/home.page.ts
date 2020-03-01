@@ -70,6 +70,7 @@ export class HomePage{
   }
 
   ngOnInit(){
+    this.sbar.overlaysWebView(true)
     this.init()
     this.conn.serverok()
     .then(async(resp)=>{

@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NFC, Ndef } from '@ionic-native/nfc/ngx';
 import { ToastController } from '@ionic/angular';
 import { Vibration } from '@ionic-native/vibration/ngx'
-import { CssSelector } from '@angular/compiler';
-import { Observable, Subscribable, Subscription } from 'rxjs';
-import { type } from 'os';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-read',
@@ -15,9 +14,12 @@ export class ReadPage implements OnInit {
   private reader : Subscription;
   private nfcobj;
 
-  constructor(private nfc: NFC, private ndef : Ndef, public toastController: ToastController, private vib: Vibration) { }
+  constructor(private statusBar: StatusBar,private nfc: NFC, private ndef : Ndef, public toastController: ToastController, private vib: Vibration) { }
 
-  ngOnInit(){}
+  ngOnInit(){
+    this.statusBar.overlaysWebView(true)
+  }
+  
   async presentToast(string) {
     const toast = await this.toastController.create({
       message: string,
