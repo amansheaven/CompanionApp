@@ -4,6 +4,8 @@ import { ToastController } from '@ionic/angular';
 import { Vibration } from '@ionic-native/vibration/ngx'
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Subscription } from 'rxjs';
+import { CentralService } from '../services/central.service';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-read',
@@ -14,7 +16,7 @@ export class ReadPage implements OnInit {
   private reader : Subscription;
   private nfcobj;
 
-  constructor(private statusBar: StatusBar,private nfc: NFC, private ndef : Ndef, public toastController: ToastController, private vib: Vibration) { }
+  constructor(private statusBar: StatusBar,private nfc: NFC, private ndef : Ndef, public toastController: ToastController, private vib: Vibration, private conn: CentralService, private navc: Router) { }
 
   ngOnInit(){
     this.statusBar.overlaysWebView(true)
@@ -45,7 +47,20 @@ export class ReadPage implements OnInit {
 
     this.reader = this.nfcobj.subscribe((event) => {
       this.vib.vibrate(100)
-      this.presentToast(event.tag.id)
+      // this.presentToast(event.tag.id)
+      let payload = event.tag.ndefMessage[0].payload;
+      let tagContent = this.nfc.bytesToString(payload)
+
+      this.presentToast(tagContent.substr(3))
+      .then(()=>{
+        let passing : NavigationExtras = {
+          state: {
+            id:tagContent.substr(3)
+          }
+        }
+        this.navc.navigate(['/location'],passing)
+      })
+      
     })
 
     

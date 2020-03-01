@@ -33,4 +33,10 @@ export class CentralService {
     // return of(long, lati)
   }
 
+  public product_find(id){
+    let finurl = this.url+'pro?id='+id.toString()
+    console.log("URL : ",finurl)
+    return this.http.get(finurl,{},{'Content-Type':'application/json'})
+  }
+
 }

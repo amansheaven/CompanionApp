@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { QRScanner,QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { ToastController } from '@ionic/angular';
+import { Vibration } from '@ionic-native/vibration/ngx';
+import { Router, NavigationExtras } from '@angular/router';
 
 
 @Component({
@@ -15,7 +18,19 @@ export class ScanPage implements OnInit {
   isOn = false;
   scannedData: {};
 
-  constructor(private statusBar: StatusBar,private qrScanner: QRScanner, public qrScanCtrl: QRScanner) { 
+  constructor(private statusBar: StatusBar,private qrScanner: QRScanner, public qrScanCtrl: QRScanner, public toastController: ToastController, private vib: Vibration,public navc: Router) { 
+  }
+
+  async presentToast(string) {
+    const toast = await this.toastController.create({
+      message: string,
+      duration: 2000,
+      color: 'light',
+      position: 'top',
+      cssClass: 'toaster',
+      animated: true,
+    });
+    toast.present();
   }
 
   ngOnInit() {
@@ -32,6 +47,15 @@ export class ScanPage implements OnInit {
           const scanSub = this.qrScanCtrl.scan().subscribe((text: string) => {
             console.log('Scanned something', text);
             this.isOn = false;
+            this.presentToast(text)
+            .then(()=>{
+              let passing : NavigationExtras = {
+                state: {
+                  id:text
+                }
+              }
+              this.navc.navigate(['/location'],passing)
+            })
 
             this.QRSCANNED_DATA = text;
             if (this.QRSCANNED_DATA !== '') {
