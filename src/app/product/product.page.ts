@@ -20,7 +20,7 @@ export class ProductPage implements OnInit {
 
   constructor(private navc: Router, private route: ActivatedRoute, private conn: CentralService, private statusBar : StatusBar,public toastController: ToastController, public alertController: AlertController) {
     // PROD SCRIPT
-    this.final_con = this.conn.product_find
+    
     this.route.queryParams.subscribe(params => {
       if(this.navc.getCurrentNavigation().extras.state) {
         this.data =  this.navc.getCurrentNavigation().extras.state.id
