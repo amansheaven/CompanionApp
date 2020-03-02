@@ -9,8 +9,10 @@ import { resolve } from 'url';
 })
 export class CentralService {
 
-  // private url = 'http://serveok.herokuapp.com/'
-  public url = 'http://192.168.43.92:5000/'
+  public url = 'http://serveprod.herokuapp.com/'
+  // public url = 'http://192.168.43.92:5000/'
+  // public url = 'http://10.10.35.66:5000/'
+
   
 
   constructor(private http:HTTP, private geo:Geolocation) { }

@@ -1,9 +1,55 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>product</ion-title>
+    <ion-title>{{data}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-{{data}}
+  <ion-card>
+    <ion-img src="{{url+info['img']}}"></ion-img>
+    <ion-card-header>
+      <ion-card-title>{{info.name}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{info.desp}}
+    </ion-card-content>
+
+    <ion-item>
+      <ion-chip *ngFor = "let item of info.choice">{{item}}</ion-chip>
+    </ion-item>
+
+  <!-- </ion-card>
+  
+  <ion-card> -->
+    <br>
+
+    <ion-item>
+      <ion-card *ngFor = "let item of info.similar" button=true (click) = "similar(item)">
+        <ion-img src="{{url+item+'.jpg'}}"></ion-img>
+        <ion-card-header>
+          <ion-card-title>{{item}}</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </ion-item>
+    
+    <ion-item>
+      <ion-icon name="pin" slot="start"></ion-icon>
+      <ion-chip *ngFor = "let item of info.availability">{{item}}</ion-chip>
+    </ion-item>
+
+  </ion-card>
+  
+  <ion-card>
+    <ion-item button (click)="presentAlertg()" class="ion-activated">
+      <ion-icon name="flash" slot="start" id="flash"></ion-icon>
+      <ion-label>Call a Genie</ion-label>
+    </ion-item>
+  
+    <ion-item button (click)="presentAlertb()">
+      <ion-icon name="pricetag" slot="start" id="ptag"></ion-icon>
+      <ion-label>Add to wishlist</ion-label>
+    </ion-item>
+
+  </ion-card>  
 </ion-content>

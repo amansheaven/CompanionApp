@@ -3,17 +3,17 @@
     <div id="head">
         <p id="mainhead">
             WelcomeTo<br>
-            <a>{{state['name']}}</a><br>
-            <a style="color: rgb(134, 134, 134);">{{state['location']}}</a><br>
+            <a>{{statei['name']}}</a><br>
+            <a style="color: rgb(134, 134, 134);">{{statei['location']}}</a><br>
         </p>
         <div id="star">
-            <div id="star_new" *ngFor="let user of ' '.repeat(state['star']).split('')">
+            <div id="star_new" *ngFor="let user of ' '.repeat(statei['star']).split('')">
                 <div class="clip-star"></div>
             </div>
         </div>
             <!-- <br> -->
         <div id="tagcont">
-            <p *ngFor="let user of state.tags" id="tags">
+            <p *ngFor="let user of statei['tags']" id="tages">
                 <ion-icon name="arrow-forward-outline"></ion-icon>
                 <a> {{user}}</a>
             </p>
@@ -29,7 +29,7 @@
         </div>  
     </div>
     <div id="code">
-        <a id = 'code'>{{state['srtid']}}</a>
+        <a id = 'code'>{{statei['srtid']}}</a>
     </div>  
 </div>
 </ion-content>

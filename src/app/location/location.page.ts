@@ -24,16 +24,16 @@ export class LocationPage implements OnInit {
       }
     })
   }
-  state = {}
+  statei = {}
   
   ngOnInit() {
     this.statusBar.styleLightContent()
     this.conn.trace(this.latitude,this.longitude)
     .then((resp)=>{
         resp = JSON.parse(resp.data)
-        this.state = resp;
-        console.log(this.state)
-        this.urlbackaddr= this.conn.url+this.state['bg']
+        this.statei = resp;
+        console.log(this.statei)
+        this.urlbackaddr= this.conn.url+this.statei['bg']
         console.log(this.urlbackaddr)
     })
     
@@ -43,7 +43,7 @@ export class LocationPage implements OnInit {
     console.log('MovingToTabs')
     let passing : NavigationExtras = {
       state : {
-        store_id : this.state['srtid']
+        store_id : this.statei['srtid']
         }
       };    
       this.navc.navigate(['/tabs'],passing);

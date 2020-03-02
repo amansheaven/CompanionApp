@@ -86,33 +86,33 @@ export class HomePage{
       this.state = "Locating"
       console.log("GEOLOC")
       //PROD SCRIPT
-      // this.conn.getloc()
-      // .then(async (resp) => {
-      //     console.log(resp.coords.latitude)
-      //     console.log(resp.coords.longitude)
-      //     let passing : NavigationExtras = {
-      //       state:{
-      //         latitude: resp.coords.latitude,
-      //         longitude: resp.coords.longitude
-      //       }
-      //     }
-      //     await this.delay(500);
-      //     this.navc.navigate(['/location'],passing)
-      //     // return resp
-      // })
-      // .catch((er)=>{
-      //   console.log(er)
-      //   this.state = "Location Error :("
-      // })
-      //LIVE RELOAD SCRIPT
-            let passing : NavigationExtras = {
-              state:{
-                latitude: 28.4569593,
-                longitude: 76.9983269
-              }
+      this.conn.getloc()
+      .then(async (resp) => {
+          console.log(resp.coords.latitude)
+          console.log(resp.coords.longitude)
+          let passing : NavigationExtras = {
+            state:{
+              latitude: resp.coords.latitude,
+              longitude: resp.coords.longitude
             }
-            await this.delay(500);
-            this.navc.navigate(['/location'],passing)
+          }
+          await this.delay(500);
+          this.navc.navigate(['/location'],passing)
+          // return resp
+      })
+      .catch((er)=>{
+        console.log(er)
+        this.state = "Location Error :("
+      })
+      //LIVE RELOAD SCRIPT
+            // let passing : NavigationExtras = {
+            //   state:{
+            //     latitude: 28.4569593,
+            //     longitude: 76.9983269
+            //   }
+            // }
+            // await this.delay(500);
+            // this.navc.navigate(['/location'],passing)
     })
     .catch((er)=>{
       console.log(er)

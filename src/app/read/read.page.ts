@@ -53,19 +53,23 @@ export class ReadPage implements OnInit {
 
       this.presentToast(tagContent.substr(3))
       .then(()=>{
-        let passing : NavigationExtras = {
-          state: {
-            id:tagContent.substr(3)
+
+        this.conn.product_find(tagContent.substr(3)).then((res)=>{
+          let passing : NavigationExtras = {
+            state: {
+              data:res,
+              id:tagContent.substr(3)
+            }
           }
-        }
-        this.navc.navigate(['/product'],passing)
+          this.navc.navigate(['/product'],passing)
+        })
       })
       
     })
 
     
   }
-  ionViewDidLeave(){
+  ngOnDestroy(){
     // console.log(this.reader.type);
     
     this.reader.unsubscribe()
